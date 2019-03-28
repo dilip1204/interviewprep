@@ -1,0 +1,69 @@
+package com.learn.thread;
+
+import java.util.ArrayList;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+class Processor12{
+	
+	
+	private Lock lock = new ReentrantLock();
+	private Condition condition = lock.newCondition();
+	
+	
+	public void produce()throws InterruptedException{
+		
+		lock.lock();
+		System.out.println("produced method");
+		condition.wait();
+		System.out.println("producer method again");
+		
+	}
+	
+	public void consume()throws InterruptedException {
+		
+		lock.lock();
+		System.out.println("consumer method");
+		condition.signal();
+		lock.unlock();
+		System.out.println("consumer method again");
+		
+	}
+}
+public class ProducerConsumerWithLock {
+	
+	public static void main(String[] args) {
+		
+		
+		
+		Thread t1 = new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				
+			}
+		});
+	
+		Thread t2 = new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				
+			}
+		});
+	t1.start();
+	t2.start();
+	
+	try {
+		t1.join();
+		t2.join();
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	}
+	
+	
+
+}

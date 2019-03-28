@@ -1,0 +1,26 @@
+package com.learn.thread;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Socksstest {
+	
+	public static void main(String[] args) {
+
+		Integer in[]= {1,1,1,2,3,1,2,1,3,5,4,8,1,2,50};
+		Map<Integer, Integer> hm = new HashMap<>();
+		int count=1;
+		for(Integer in1:in) {
+			if(hm.containsKey(in1)) {
+				hm.put(in1, in1+1);
+			}else {
+				hm.put(in1, 1);
+			}
+			
+		}
+		
+		hm.forEach((k,v)-> System.out.println(k+"  "+ v));
+	}
+	
+	
+}

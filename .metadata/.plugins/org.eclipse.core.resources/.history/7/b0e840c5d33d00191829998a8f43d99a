@@ -1,0 +1,27 @@
+package com.learn.thread;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Socksstest {
+	
+	public static void main(String[] args) {
+
+		Integer in[]= {1,2,3,1,2,1,3,5,4,8,1,2,50};
+		Map<Integer, Integer> hm = new HashMap<>();
+		int count=1;
+		hm.put(in[0], count);
+		for(int i=0;i<in.length;i++) {
+			if(hm.containsKey(in[i])) {
+				hm.put(in[i], count+1);
+			}else {
+				hm.put(in[i], count);
+			}
+			
+		}
+		
+		hm.forEach((k,v)-> System.out.println(k+"  "+ v));
+	}
+	
+	
+}

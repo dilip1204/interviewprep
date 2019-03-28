@@ -1,0 +1,48 @@
+package com.learn.thread;
+
+class Worker implements Runnable{
+	
+	private boolean isTerminated = false;
+	
+
+	@Override
+	public void run() {
+	
+		while(!isTerminated) {
+			System.out.println("hello from worker class");
+			
+			try {
+				Thread.sleep(100);
+			}catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+
+	public boolean isTerminated() {
+		return isTerminated;
+	}
+
+
+	public void setTerminated(boolean isTerminated) {
+		this.isTerminated = isTerminated;
+	}
+	
+	
+	
+}
+
+public class AppVolatile {
+	
+	public static void main(String[] args) {
+		Thread tw1= new Thread(new Worker());
+		tw1.start();
+		
+		
+		
+	}
+	
+
+
+}

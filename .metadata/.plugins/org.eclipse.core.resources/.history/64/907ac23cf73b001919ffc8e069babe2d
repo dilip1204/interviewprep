@@ -1,0 +1,48 @@
+package com.learn.thread;
+
+public class SynchBlock {
+	
+	public static int counter1 =0;
+	public static int counter2=0;
+
+	
+	public static synchronized void add() {
+		counter1++;
+	}
+	
+	public static synchronized void add1() {
+		counter1++;
+	}
+	
+	public static void compute() {
+		for(int i=0;i<100;i++) {
+			add();
+			add1();
+		}
+	}
+	
+	public static void main(String[] args) {
+		
+		Thread t1 = new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				compute();
+			}
+		});
+		
+	Thread t2 = new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				compute();
+			}
+		});	
+	
+	t1.start();
+	t2.start();
+	
+
+		
+	}
+}

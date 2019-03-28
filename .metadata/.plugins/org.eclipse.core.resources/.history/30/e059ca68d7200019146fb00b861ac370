@@ -1,0 +1,15 @@
+package com.practise.microservice;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+public class CurrencyConversionController {
+
+	
+	@GetMapping("/currency-converter/from/{from}/to/{to}/quantity/{quantity}")
+	public CurrencyConversionBean retriveValue(@PathVariable String from,@PathVariable String to) {
+		ExchangeValue exchangeValue = repo.findByFromAndTo(from, to);
+		exchangeValue.setPort(Integer.parseInt(env.getProperty("local.server.port")));
+		return exchangeValue;
+	}
+}

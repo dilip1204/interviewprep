@@ -1,0 +1,17 @@
+package com.test.restful.versioning;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class PersonVersionController {
+
+	public PersonV1 getName() {
+		return new PersonV1("Dilip kumar");
+	}
+	
+	public PersonV2 getNameVersion2() {
+		return new PersonV2(new Names("Dilip","kumar"));
+	}
+	
+	
+}

@@ -1,0 +1,15 @@
+package com.learn.thread;
+
+public class Snippet {
+	public static void main(String[] args) {
+		
+		
+		lock.lock();
+		System.out.println("produced method");
+		condition.wait();
+		System.out.println("producer method again");
+		
+		
+	}
+}
+

@@ -1,0 +1,27 @@
+package com.test.restful.user;
+
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+
+public class UserNotFoundException extends RuntimeException {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	public UserNotFoundException(String message) {
+		super(message);
+	}
+	
+	@ExceptionHandler(IllegalArgumentException e)
+	void handleException(HttpServletResponse response)throws IOException {
+		response.sendError(HttpStatus.NOT_FOUND.value());
+	}
+
+}

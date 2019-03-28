@@ -1,0 +1,72 @@
+package com.test.restful.user;
+
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
+
+import java.net.URI;
+import java.util.List;
+import java.util.Optional;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Resource;
+import org.springframework.hateoas.mvc.ControllerLinkBuilder;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import com.test.restful.exception.UserNotFoundException;
+
+@RestController
+public class UserJPAResource {
+
+	@Autowired
+	private UserService service;
+	
+	
+	@Autowired
+	private UserRepository userRepo;
+
+	// return all user
+	@GetMapping(path = "/jpa/users")
+	public List<User> fetchAllUser() {
+		return userRepo.findAll();
+	}
+
+	@GetMapping("/jpa/user/{id}")
+	public Resource<User> retriveBasedonId(@PathVariable int id) {
+		Optional<User> findOne = userRepo.findById(id);
+
+		if (!findOne.isPresent()) {
+
+			throw new UserNotFoundException("id - " + id);
+		}
+
+		Resource<User> res = new Resource<User>(findOne.get());
+		ControllerLinkBuilder linkTos = linkTo(methodOn(this.getClass()).fetchAllUser());
+		res.add(linkTos.withRel("Fetching all users"));
+
+		return res;
+	}
+
+	@DeleteMapping("/jpa/user/{id}")
+	public void deleteBasedonId(@PathVariable int id) {
+		userRepo.deleteById(id);
+		// return findOne;
+	}
+
+	@PostMapping("/jpa/createUser")
+	public ResponseEntity<Object> saveUser(@Valid @RequestBody User user) {
+		User userDetail = userRepo.save(user);
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("{id}").buildAndExpand(userDetail.getId())
+				.toUri();
+		return ResponseEntity.created(location).build();
+	}
+
+}

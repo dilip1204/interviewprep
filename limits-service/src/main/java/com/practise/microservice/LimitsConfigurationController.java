@@ -1,0 +1,30 @@
+package com.practise.microservice;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+
+@RestController
+public class LimitsConfigurationController {
+	@Autowired
+	private Configuration config;
+
+	@GetMapping("/limits")
+	
+	public LimitConfiguration retriveLimitsFromConfig() {
+		return new LimitConfiguration(config.getMinimum(),config.getMaximum());
+	}
+	
+	@GetMapping("/fault-tolerance-example")
+	@HystrixCommand(fallbackMethod="fallbackRetriveConfiguration")
+	public LimitConfiguration retriveFromConfig() {
+		throw new RuntimeException("not available");
+	}
+	
+	
+	public LimitConfiguration fallbackRetriveConfiguration() {
+		return new LimitConfiguration(2, 22223);
+	}
+}

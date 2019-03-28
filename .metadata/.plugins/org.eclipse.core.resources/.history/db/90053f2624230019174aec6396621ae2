@@ -1,0 +1,5 @@
+package com.practise.microservice;
+
+public interface CurrencyExchangeServiceProxy {
+
+}
