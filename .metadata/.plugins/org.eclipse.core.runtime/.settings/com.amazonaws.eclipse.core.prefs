@@ -4,5 +4,6 @@ cognitoIdentityPoolId=us-east-1\:d4fdc07f-94fd-4cc6-94fb-f903657f05c1
 credentialProfileAccountIds=947b2d67-385c-487a-9caa-30051d4d4f58
 currentAccount=947b2d67-385c-487a-9caa-30051d4d4f58
 currentDefaultAccount=947b2d67-385c-487a-9caa-30051d4d4f58
+defaultRegion=us-east-1
 ec2PreferencesImported=true
 eclipse.preferences.version=1

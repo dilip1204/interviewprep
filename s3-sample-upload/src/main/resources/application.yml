@@ -1,0 +1,5 @@
+amazonProperties:
+  endpointUrl: https://s3.us-east-2.amazonaws.com
+  accessKey: AKIAYXKVP7YKS67VNY7P
+  secretKey: 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
+  bucketName: bckettest
