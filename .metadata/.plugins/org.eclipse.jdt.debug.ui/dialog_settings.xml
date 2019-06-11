@@ -2,7 +2,7 @@
 <section name="Workbench">
 	<section name="org.eclipse.jdt.debug.ui.MAIN_METHOD_SELECTION_DIALOG">
 		<item value="true" key="ShowStatusLine"/>
-		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History&gt;&#x0A;&lt;historyRootNode&gt;&#x0A;&lt;infoNode&gt;=netflix-zuul-api-gateway-server/src\/main\/java&amp;lt;com.practise.microservice{NetflixZuulApiGatewayServerApplication.java[NetflixZuulApiGatewayServerApplication&lt;/infoNode&gt;&#x0A;&lt;infoNode&gt;=zipkin-server/src\/main\/java&amp;lt;com.example.demo{ZipkinServerApplication.java[ZipkinServerApplication&lt;/infoNode&gt;&#x0A;&lt;/historyRootNode&gt;&#x0A;&lt;/History&gt;" key="History"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History&gt;&#x0A;&lt;historyRootNode&gt;&#x0A;&lt;infoNode&gt;=netflix-zuul-api-gateway-server/src\/main\/java&amp;lt;com.practise.microservice{NetflixZuulApiGatewayServerApplication.java[NetflixZuulApiGatewayServerApplication&lt;/infoNode&gt;&#x0A;&lt;infoNode&gt;=zipkin-server/src\/main\/java&amp;lt;com.example.demo{ZipkinServerApplication.java[ZipkinServerApplication&lt;/infoNode&gt;&#x0A;&lt;infoNode&gt;=s3-sample-upload/src\/main\/java&amp;lt;com.practise.aws{S3SampleUploadApplication.java[S3SampleUploadApplication&lt;/infoNode&gt;&#x0A;&lt;/historyRootNode&gt;&#x0A;&lt;/History&gt;" key="History"/>
 		<section name="DialogBoundsSettings">
 			<item value="600" key="DIALOG_WIDTH"/>
 			<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>

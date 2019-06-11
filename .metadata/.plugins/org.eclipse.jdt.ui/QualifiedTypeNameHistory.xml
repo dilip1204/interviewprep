@@ -29,4 +29,7 @@
 <fullyQualifiedTypeName name="java.lang.InterruptedException"/>
 <fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="com.learn.thread.Worker"/>
+<fullyQualifiedTypeName name="com.amazonaws.services.pinpoint.model.Duration"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Value"/>
+<fullyQualifiedTypeName name="java.time.Duration"/>
 </qualifiedTypeNameHistroy>
